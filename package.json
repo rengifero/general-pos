@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build:api": "nx build backend",
-  "start:prod:api": "node dist/main.js"
+  "start:prod:api": "node apps/backend/dist/main.js"
   },
   "private": true,
   "devDependencies": {

@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build:api": "nest build api",
+    "build:api": "nx build backend",
   "start:prod:api": "node dist/apps/backend/main.js"
   },
   "private": true,

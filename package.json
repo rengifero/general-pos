@@ -2,7 +2,10 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "build:api": "nest build api",
+  "start:prod:api": "node dist/apps/backend/main.js"
+  },
   "private": true,
   "devDependencies": {
     "@eslint/js": "^9.8.0",

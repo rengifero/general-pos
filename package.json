@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build:api": "nx build backend",
+    "build:api": "npx nx build backend --prod",
   "start:prod:api": "node dist/main.js"
   },
   "private": true,

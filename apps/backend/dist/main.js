@@ -5,37 +5,31 @@
 /* 1 */
 /***/ ((module) => {
 
-module.exports = require("dotenv/config");
+module.exports = require("@nestjs/common");
 
 /***/ }),
 /* 2 */
 /***/ ((module) => {
 
-module.exports = require("@nestjs/common");
-
-/***/ }),
-/* 3 */
-/***/ ((module) => {
-
 module.exports = require("@nestjs/core");
 
 /***/ }),
-/* 4 */
+/* 3 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppModule = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const config_1 = __webpack_require__(6);
-const app_controller_1 = __webpack_require__(7);
-const app_service_1 = __webpack_require__(8);
-const graphql_1 = __webpack_require__(9);
-const apollo_1 = __webpack_require__(10);
-const path_1 = __webpack_require__(11);
-const products_module_1 = __webpack_require__(12);
-const prisma_module_1 = __webpack_require__(25);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const config_1 = __webpack_require__(5);
+const app_controller_1 = __webpack_require__(6);
+const app_service_1 = __webpack_require__(7);
+const graphql_1 = __webpack_require__(8);
+const apollo_1 = __webpack_require__(9);
+const path_1 = __webpack_require__(10);
+const products_module_1 = __webpack_require__(11);
+const prisma_module_1 = __webpack_require__(24);
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
@@ -62,28 +56,28 @@ exports.AppModule = AppModule = tslib_1.__decorate([
 
 
 /***/ }),
-/* 5 */
+/* 4 */
 /***/ ((module) => {
 
 module.exports = require("tslib");
 
 /***/ }),
-/* 6 */
+/* 5 */
 /***/ ((module) => {
 
 module.exports = require("@nestjs/config");
 
 /***/ }),
-/* 7 */
+/* 6 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppController = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const app_service_1 = __webpack_require__(8);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const app_service_1 = __webpack_require__(7);
 let AppController = class AppController {
     constructor(appService) {
         this.appService = appService;
@@ -106,14 +100,14 @@ exports.AppController = AppController = tslib_1.__decorate([
 
 
 /***/ }),
-/* 8 */
+/* 7 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppService = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
 let AppService = class AppService {
     getData() {
         return { message: 'Hello mundo cruel API' };
@@ -126,35 +120,35 @@ exports.AppService = AppService = tslib_1.__decorate([
 
 
 /***/ }),
-/* 9 */
+/* 8 */
 /***/ ((module) => {
 
 module.exports = require("@nestjs/graphql");
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ ((module) => {
 
 module.exports = require("@nestjs/apollo");
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ ((module) => {
 
 module.exports = require("path");
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProductsModule = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const products_service_1 = __webpack_require__(13);
-const products_resolver_1 = __webpack_require__(21);
-const prisma_module_1 = __webpack_require__(25);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const products_service_1 = __webpack_require__(12);
+const products_resolver_1 = __webpack_require__(20);
+const prisma_module_1 = __webpack_require__(24);
 let ProductsModule = class ProductsModule {
 };
 exports.ProductsModule = ProductsModule;
@@ -167,16 +161,16 @@ exports.ProductsModule = ProductsModule = tslib_1.__decorate([
 
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProductsService = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const prisma_service_1 = __webpack_require__(14);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const prisma_service_1 = __webpack_require__(13);
 let ProductsService = class ProductsService {
     constructor(prisma) {
         this.prisma = prisma;
@@ -205,16 +199,16 @@ exports.ProductsService = ProductsService = tslib_1.__decorate([
 
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PrismaService = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const client_1 = __webpack_require__(15);
-const adapter_mariadb_1 = __webpack_require__(20);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const client_1 = __webpack_require__(14);
+const adapter_mariadb_1 = __webpack_require__(19);
 let PrismaService = class PrismaService extends client_1.PrismaClient {
     constructor() {
         // Ensure process.env.DATABASE_URL is a non-empty string
@@ -243,7 +237,7 @@ exports.PrismaService = PrismaService = tslib_1.__decorate([
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -259,12 +253,12 @@ exports.PrismaService = PrismaService = tslib_1.__decorate([
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Prisma = exports.PrismaClient = exports.$Enums = void 0;
-const tslib_1 = __webpack_require__(5);
-const $Class = tslib_1.__importStar(__webpack_require__(16));
-const Prisma = tslib_1.__importStar(__webpack_require__(18));
+const tslib_1 = __webpack_require__(4);
+const $Class = tslib_1.__importStar(__webpack_require__(15));
+const Prisma = tslib_1.__importStar(__webpack_require__(17));
 exports.Prisma = Prisma;
-exports.$Enums = tslib_1.__importStar(__webpack_require__(19));
-tslib_1.__exportStar(__webpack_require__(19), exports);
+exports.$Enums = tslib_1.__importStar(__webpack_require__(18));
+tslib_1.__exportStar(__webpack_require__(18), exports);
 /**
  * ## Prisma Client
  *
@@ -282,7 +276,7 @@ exports.PrismaClient = $Class.getPrismaClientClass();
 
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -299,8 +293,8 @@ exports.PrismaClient = $Class.getPrismaClientClass();
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getPrismaClientClass = getPrismaClientClass;
-const tslib_1 = __webpack_require__(5);
-const runtime = tslib_1.__importStar(__webpack_require__(17));
+const tslib_1 = __webpack_require__(4);
+const runtime = tslib_1.__importStar(__webpack_require__(16));
 const config = {
     "previewFeatures": [],
     "clientVersion": "7.3.0",
@@ -315,14 +309,14 @@ const config = {
 };
 config.runtimeDataModel = JSON.parse("{\"models\":{\"Product\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"name\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"description\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"image\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"stripePriceId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"isFeatured\",\"kind\":\"scalar\",\"type\":\"Boolean\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"Order\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"userId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"status\",\"kind\":\"enum\",\"type\":\"OrderStatus\"},{\"name\":\"totalAmount\",\"kind\":\"scalar\",\"type\":\"Float\"},{\"name\":\"paymentId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"createdAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"},{\"name\":\"updatedAt\",\"kind\":\"scalar\",\"type\":\"DateTime\"}],\"dbName\":null},\"OrderItem\":{\"fields\":[{\"name\":\"id\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"orderId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"productId\",\"kind\":\"scalar\",\"type\":\"String\"},{\"name\":\"quantity\",\"kind\":\"scalar\",\"type\":\"Int\"},{\"name\":\"price\",\"kind\":\"scalar\",\"type\":\"Float\"}],\"dbName\":null}},\"enums\":{},\"types\":{}}");
 async function decodeBase64AsWasm(wasmBase64) {
-    const { Buffer } = await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 26, 23));
+    const { Buffer } = await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 25, 23));
     const wasmArray = Buffer.from(wasmBase64, 'base64');
     return new WebAssembly.Module(wasmArray);
 }
 config.compilerWasm = {
-    getRuntime: async () => await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 27, 23)),
+    getRuntime: async () => await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 26, 23)),
     getQueryCompilerWasmModule: async () => {
-        const { wasm } = await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 28, 23));
+        const { wasm } = await Promise.resolve(/* import() */).then(__webpack_require__.t.bind(__webpack_require__, 27, 23));
         return await decodeBase64AsWasm(wasm);
     },
     importName: "./query_compiler_fast_bg.js"
@@ -333,13 +327,13 @@ function getPrismaClientClass() {
 
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ ((module) => {
 
 module.exports = require("@prisma/client/runtime/client");
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -360,8 +354,8 @@ module.exports = require("@prisma/client/runtime/client");
  */
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defineExtension = exports.OrderItemOrderByRelevanceFieldEnum = exports.OrderOrderByRelevanceFieldEnum = exports.NullsOrder = exports.ProductOrderByRelevanceFieldEnum = exports.SortOrder = exports.OrderItemScalarFieldEnum = exports.OrderScalarFieldEnum = exports.ProductScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
-const tslib_1 = __webpack_require__(5);
-const runtime = tslib_1.__importStar(__webpack_require__(17));
+const tslib_1 = __webpack_require__(4);
+const runtime = tslib_1.__importStar(__webpack_require__(16));
 /**
  * Prisma Errors
  */
@@ -484,7 +478,7 @@ exports.defineExtension = runtime.Extensions.defineExtension;
 
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -508,25 +502,25 @@ exports.OrderStatus = {
 
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ ((module) => {
 
 module.exports = require("@prisma/adapter-mariadb");
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 var _a, _b, _c;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.ProductsResolver = void 0;
-const tslib_1 = __webpack_require__(5);
-const graphql_1 = __webpack_require__(9);
-const products_service_1 = __webpack_require__(13);
-const product_entity_1 = __webpack_require__(22);
-const create_product_input_1 = __webpack_require__(23);
-const update_product_input_1 = __webpack_require__(24);
+const tslib_1 = __webpack_require__(4);
+const graphql_1 = __webpack_require__(8);
+const products_service_1 = __webpack_require__(12);
+const product_entity_1 = __webpack_require__(21);
+const create_product_input_1 = __webpack_require__(22);
+const update_product_input_1 = __webpack_require__(23);
 let ProductsResolver = class ProductsResolver {
     constructor(productsService) {
         this.productsService = productsService;
@@ -589,15 +583,15 @@ exports.ProductsResolver = ProductsResolver = tslib_1.__decorate([
 
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Product = void 0;
-const tslib_1 = __webpack_require__(5);
-const graphql_1 = __webpack_require__(9);
+const tslib_1 = __webpack_require__(4);
+const graphql_1 = __webpack_require__(8);
 let Product = class Product {
 };
 exports.Product = Product;
@@ -643,14 +637,14 @@ exports.Product = Product = tslib_1.__decorate([
 
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.CreateProductInput = void 0;
-const tslib_1 = __webpack_require__(5);
-const graphql_1 = __webpack_require__(9);
+const tslib_1 = __webpack_require__(4);
+const graphql_1 = __webpack_require__(8);
 let CreateProductInput = class CreateProductInput {
 };
 exports.CreateProductInput = CreateProductInput;
@@ -664,15 +658,15 @@ exports.CreateProductInput = CreateProductInput = tslib_1.__decorate([
 
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.UpdateProductInput = void 0;
-const tslib_1 = __webpack_require__(5);
-const create_product_input_1 = __webpack_require__(23);
-const graphql_1 = __webpack_require__(9);
+const tslib_1 = __webpack_require__(4);
+const create_product_input_1 = __webpack_require__(22);
+const graphql_1 = __webpack_require__(8);
 let UpdateProductInput = class UpdateProductInput extends (0, graphql_1.PartialType)(create_product_input_1.CreateProductInput) {
 };
 exports.UpdateProductInput = UpdateProductInput;
@@ -686,15 +680,15 @@ exports.UpdateProductInput = UpdateProductInput = tslib_1.__decorate([
 
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PrismaModule = void 0;
-const tslib_1 = __webpack_require__(5);
-const common_1 = __webpack_require__(2);
-const prisma_service_1 = __webpack_require__(14);
+const tslib_1 = __webpack_require__(4);
+const common_1 = __webpack_require__(1);
+const prisma_service_1 = __webpack_require__(13);
 let PrismaModule = class PrismaModule {
 };
 exports.PrismaModule = PrismaModule;
@@ -707,19 +701,19 @@ exports.PrismaModule = PrismaModule = tslib_1.__decorate([
 
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ ((module) => {
 
 module.exports = require("node:buffer");
 
 /***/ }),
-/* 27 */
+/* 26 */
 /***/ ((module) => {
 
 module.exports = require("@prisma/client/runtime/query_compiler_fast_bg.mysql.js");
 
 /***/ }),
-/* 28 */
+/* 27 */
 /***/ ((module) => {
 
 module.exports = require("@prisma/client/runtime/query_compiler_fast_bg.mysql.wasm-base64.js");
@@ -816,15 +810,14 @@ var __webpack_exports__ = {};
 (() => {
 var exports = __webpack_exports__;
 
-Object.defineProperty(exports, "__esModule", ({ value: true }));
 /**
  * This is not a production server yet!
  * This is only a minimal backend to get started.
  */
-__webpack_require__(1);
-const common_1 = __webpack_require__(2);
-const core_1 = __webpack_require__(3);
-const app_module_1 = __webpack_require__(4);
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+const common_1 = __webpack_require__(1);
+const core_1 = __webpack_require__(2);
+const app_module_1 = __webpack_require__(3);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     const globalPrefix = 'api';

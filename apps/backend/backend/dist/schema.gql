@@ -1,0 +1,54 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int!
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Mutation {
+  createProduct(createProductInput: CreateProductInput!): Product!
+  removeProduct(id: Int!): Product!
+  updateProduct(updateProductInput: UpdateProductInput!): Product!
+}
+
+type Product {
+  createdAt: DateTime!
+
+  """description"""
+  description: String!
+
+  """Example field (placeholder)"""
+  id: String!
+
+  """image"""
+  image: String!
+  isFeatured: Boolean!
+
+  """nombre"""
+  name: String!
+
+  """price"""
+  price: Float!
+
+  """strip price id"""
+  stripePriceId: String!
+  updatedAt: DateTime!
+}
+
+type Query {
+  product(id: Int!): Product!
+  products: [Product!]!
+}
+
+input UpdateProductInput {
+  """Example field (placeholder)"""
+  exampleField: Int
+  id: Int!
+}

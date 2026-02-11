@@ -3,8 +3,10 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
+      "start":"comenzado deploy",
+      "echo": "echo 'La versión actual es: $npm_package_version'",
     "build:api": "npx nx build backend --prod",
-  "start:prod:api": "node dist/main.js"
+  "start:prod:api": "echo 'Iniciando servidor...' && node dist/main.js"
   },
   "private": true,
   "devDependencies": {

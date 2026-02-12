@@ -14,6 +14,7 @@ async function bootstrap() {
   app.enableCors({
     origin: 'http://localhost:3000', // Replace with your client's origin (e.g., your frontend URL)
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+    'Content-Type': 'application/json',
     allowedHeaders: 'Content-Type, X-Apollo-Operation-Name, Apollo-Require-Preflight', // Include necessary headers
     credentials: true, // If you need to handle cookies/credentials
   });

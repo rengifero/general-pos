@@ -17,7 +17,7 @@ import { PrismaModule } from '../prisma/prisma.module';
     }),
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
-       typePaths: ['./**/*.graphql'], 
+ 
       autoSchemaFile: join(process.cwd(), 'backend/dist/schema.gql'),
           csrfPrevention: false, 
           

@@ -43,6 +43,7 @@ exports.AppModule = AppModule = tslib_1.__decorate([
             graphql_1.GraphQLModule.forRoot({
                 driver: apollo_1.ApolloDriver,
                 autoSchemaFile: (0, path_1.join)(process.cwd(), 'backend/dist/schema.gql'),
+                csrfPrevention: false,
                 sortSchema: true,
                 introspection: true,
             }),
@@ -203,34 +204,64 @@ exports.ProductsService = ProductsService = tslib_1.__decorate([
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
+var PrismaService_1;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PrismaService = void 0;
 const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
-const client_1 = __webpack_require__(14);
-const adapter_mariadb_1 = __webpack_require__(19);
-let PrismaService = class PrismaService extends client_1.PrismaClient {
+const adapter_mariadb_1 = __webpack_require__(14);
+const client_1 = __webpack_require__(15);
+let PrismaService = PrismaService_1 = class PrismaService extends client_1.PrismaClient {
     constructor() {
         // Ensure process.env.DATABASE_URL is a non-empty string
         const connectionString = process.env.DATABASE_URL;
         if (!connectionString) {
             throw new Error('DATABASE_URL is not defined');
         }
-        // Pass the adapter instance to the super constructor
+        /* const adapter = new PrismaMariaDb({
+          //connectionLimit: Number(configService.getOrThrow('DB_CONNECTION_LIMIT')),
+          database: configService.getOrThrow('DB_DATABASE'),
+          host: configService.getOrThrow('DB_HOST'),
+          password: configService.getOrThrow('DB_PASSWORD'),
+          user: configService.getOrThrow('DB_USER'),
+          // Prisma adapter logger configuration
+          logger: {
+            network: (info) => {
+              this.logger.log('PrismaAdapterNetwork', info);
+            },
+            query: (info) => {
+              this.logger.log('PrismaAdapterQuery', info);
+            },
+            error: (error) => {
+              this.logger.error('PrismaAdapterError', error);
+            },
+            warning: (info) => {
+              this.logger.warn('PrismaAdapterWarning', info);
+            },
+          },
+        }); */
         const adapter = new adapter_mariadb_1.PrismaMariaDb(connectionString);
-        super({ adapter });
+        // Prisma client initialization with adapter and full log levels
+        super({
+            adapter,
+            log: ['query', 'info', 'warn', 'error'],
+        });
+        // Built-in NestJS logger instance for PrismaService
+        this.logger = new common_1.Logger(PrismaService_1.name);
     }
+    // Connect to database when module is initialized
     async onModuleInit() {
         await this.$connect();
+        this.logger.log('Database connection succeeded');
     }
-    async enableShutdownHooks(app) {
-        process.on('beforeExit', async () => {
-            await app.close();
-        });
+    // Disconnect from database when module is destroyed
+    async onModuleDestroy() {
+        await this.$disconnect();
+        this.logger.log('Database connection disconnected');
     }
 };
 exports.PrismaService = PrismaService;
-exports.PrismaService = PrismaService = tslib_1.__decorate([
+exports.PrismaService = PrismaService = PrismaService_1 = tslib_1.__decorate([
     (0, common_1.Injectable)(),
     tslib_1.__metadata("design:paramtypes", [])
 ], PrismaService);
@@ -238,6 +269,12 @@ exports.PrismaService = PrismaService = tslib_1.__decorate([
 
 /***/ }),
 /* 14 */
+/***/ ((module) => {
+
+module.exports = require("@prisma/adapter-mariadb");
+
+/***/ }),
+/* 15 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -254,11 +291,11 @@ exports.PrismaService = PrismaService = tslib_1.__decorate([
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.Prisma = exports.PrismaClient = exports.$Enums = void 0;
 const tslib_1 = __webpack_require__(4);
-const $Class = tslib_1.__importStar(__webpack_require__(15));
-const Prisma = tslib_1.__importStar(__webpack_require__(17));
+const $Class = tslib_1.__importStar(__webpack_require__(16));
+const Prisma = tslib_1.__importStar(__webpack_require__(18));
 exports.Prisma = Prisma;
-exports.$Enums = tslib_1.__importStar(__webpack_require__(18));
-tslib_1.__exportStar(__webpack_require__(18), exports);
+exports.$Enums = tslib_1.__importStar(__webpack_require__(19));
+tslib_1.__exportStar(__webpack_require__(19), exports);
 /**
  * ## Prisma Client
  *
@@ -276,7 +313,7 @@ exports.PrismaClient = $Class.getPrismaClientClass();
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -294,7 +331,7 @@ exports.PrismaClient = $Class.getPrismaClientClass();
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.getPrismaClientClass = getPrismaClientClass;
 const tslib_1 = __webpack_require__(4);
-const runtime = tslib_1.__importStar(__webpack_require__(16));
+const runtime = tslib_1.__importStar(__webpack_require__(17));
 const config = {
     "previewFeatures": [],
     "clientVersion": "7.3.0",
@@ -327,13 +364,13 @@ function getPrismaClientClass() {
 
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ ((module) => {
 
 module.exports = require("@prisma/client/runtime/client");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
@@ -355,7 +392,7 @@ module.exports = require("@prisma/client/runtime/client");
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.defineExtension = exports.OrderItemOrderByRelevanceFieldEnum = exports.OrderOrderByRelevanceFieldEnum = exports.NullsOrder = exports.ProductOrderByRelevanceFieldEnum = exports.SortOrder = exports.OrderItemScalarFieldEnum = exports.OrderScalarFieldEnum = exports.ProductScalarFieldEnum = exports.TransactionIsolationLevel = exports.ModelName = exports.AnyNull = exports.JsonNull = exports.DbNull = exports.NullTypes = exports.prismaVersion = exports.getExtensionContext = exports.Decimal = exports.Sql = exports.raw = exports.join = exports.empty = exports.sql = exports.PrismaClientValidationError = exports.PrismaClientInitializationError = exports.PrismaClientRustPanicError = exports.PrismaClientUnknownRequestError = exports.PrismaClientKnownRequestError = void 0;
 const tslib_1 = __webpack_require__(4);
-const runtime = tslib_1.__importStar(__webpack_require__(16));
+const runtime = tslib_1.__importStar(__webpack_require__(17));
 /**
  * Prisma Errors
  */
@@ -478,7 +515,7 @@ exports.defineExtension = runtime.Extensions.defineExtension;
 
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -500,12 +537,6 @@ exports.OrderStatus = {
     RECHAZADO: 'RECHAZADO'
 };
 
-
-/***/ }),
-/* 19 */
-/***/ ((module) => {
-
-module.exports = require("@prisma/adapter-mariadb");
 
 /***/ }),
 /* 20 */
@@ -824,6 +855,7 @@ async function bootstrap() {
     app.enableCors({
         origin: 'http://localhost:3000', // Replace with your client's origin (e.g., your frontend URL)
         methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+        'Content-Type': 'application/json',
         allowedHeaders: 'Content-Type, X-Apollo-Operation-Name, Apollo-Require-Preflight', // Include necessary headers
         credentials: true, // If you need to handle cookies/credentials
     });

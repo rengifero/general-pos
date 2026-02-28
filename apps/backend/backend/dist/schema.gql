@@ -43,8 +43,9 @@ type Product {
 }
 
 type Query {
-  product(id: Int!): Product!
+  product(id: String!): Product!
   products: [Product!]!
+  searchProducts(term: String!): [Product!]!
 }
 
 input UpdateProductInput {

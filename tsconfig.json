@@ -10,7 +10,11 @@
       "path": "./apps/backend"
     },
     {
-      "path": "./libs/db"
+      "path": "./apps/general-web-e2e"
     }
-  ]
+  ],
+  "exclude": ["dist", "node_modules"],
+  "watchOptions": {
+  "watchFile": "fixedPollingInterval"
+}
 }

@@ -2,7 +2,7 @@ import { Injectable, OnModuleDestroy, Logger } from '@nestjs/common';
 
 import { PrismaMariaDb } from '@prisma/adapter-mariadb';
 
-import { PrismaClient } from '../../src/generated/prisma/client';
+import { PrismaClient } from '@prisma/client';
 
 @Injectable()
 export class PrismaService extends PrismaClient implements OnModuleDestroy {

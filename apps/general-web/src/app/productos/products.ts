@@ -1,26 +1,44 @@
-import { CommonModule } from '@angular/common';
-import { afterRenderEffect, Component, inject } from '@angular/core';
+
+import { afterNextRender, Component, inject } from '@angular/core';
+
 import { ProductStore } from '../stores/product.store';
+import {  debounceTime, distinctUntilChanged, Subject } from 'rxjs';
+import { FormsModule } from '@angular/forms';
+import { ProductCardCompoment } from '../components/product-card/product-card';
+import untilDestroyed from '../utils/untilDestroyed';
+import { CartStore } from '../stores/cart.store';
+
 
 @Component({
   selector: 'app-products',
-  imports: [CommonModule],
+  imports: [ProductCardCompoment, FormsModule],
   templateUrl: './products.html',
   styleUrl: './products.scss',
 })
 export class Products {
+ searchTerm = '';
+  productStore = inject(ProductStore);
+  searchSubject = new Subject<string>();
+    destroyed = untilDestroyed();
+cartStore = inject(CartStore)
 
-
-  productStore = inject(ProductStore)
-
-
-  constructor(){
-afterRenderEffect(()=>{
-console.log("entrando por aqui")
-this.productStore.loadProducts();
-
-})
-
-
+   constructor() {
+    this.productStore.loadProducts();
+    afterNextRender(() => {
+      this.searchSubject
+        .pipe(debounceTime(500), distinctUntilChanged(), this.destroyed())
+        .subscribe((term) => {
+          console.log({ term });
+          this.productStore.searchProducts(term);
+        });
+    });
   }
+
+  onSearch(term: string) {
+    console.log("term")
+    this.searchSubject.next(term);
+  }
+
+  
 }
+ 

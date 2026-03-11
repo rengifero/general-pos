@@ -74,7 +74,9 @@ console.log("entranod a leer datos")
         )
         .subscribe();
 },
- searchProducts(term: string) {
+ searchProducts(term: string) { 
+
+  console.log("entrandp search productrs")
       patchState(store, { loading: true, error: null });
       apollo
         .query<{ searchProducts: Product[] }>({

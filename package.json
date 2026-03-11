@@ -3,7 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "start": "comenzado deploy",
+    "start": "NODE_OPTIONS=\"--no-experimental-webstorage\" nx serve",
+    
     "echo": "echo 'La versión actual es: $npm_package_version'",
     "build:api": "npx nx build backend --prod",
     "start:prod:api": "echo 'Iniciando servidor...' && node dist/main.js"

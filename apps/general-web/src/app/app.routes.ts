@@ -19,6 +19,18 @@ const mod = await import ('./productos/products')
 return  mod.Products;
  }
 },
+ {   path: 'cart',
+     loadComponent: async ()=>{
+const mod = await import ('./cart/cart')
+return  mod.Cart;
+ }
+},
+{   path: 'ckeckout',
+     loadComponent: async ()=>{
+const mod = await import ('./checkout/ckeckout')
+return  mod.Ckeckout;
+ }
+},
 
 
 ];

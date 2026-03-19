@@ -2,6 +2,13 @@
   "name": "@org/backend",
   "version": "0.0.1",
   "private": true,
+    "scripts": {
+    "start": "NODE_OPTIONS=\"--no-experimental-webstorage\" nx serve",
+    
+    "echo": "echo 'La versión actual es: $npm_package_version'",
+    "build:api": "npx nx build backend --prod",
+    "start:prod:api": "echo 'Iniciando servidor...' && node dist/main.js"
+  },
   "nx": {
     "targets": {
       "build": {
@@ -113,7 +120,17 @@
     "@nestjs/testing": "^11.0.0",
 "@nestjs/schematics": "^11.0.0",
   
-
+    "@nx/esbuild": "22.5.2",
+    "@nx/eslint": "22.5.2",
+    "@nx/eslint-plugin": "22.5.2",
+    "@nx/jest": "22.5.2",
+    "@nx/js": "22.5.2",
+    "@nx/nest": "22.5.2",
+    "@nx/node": "22.5.2",
+    "@nx/playwright": "22.5.2",
+    "@nx/web": "22.5.2",
+    "@nx/webpack": "22.5.2",
+    "@playwright/test": "^1.36.0",
 
   "@types/express": "^4.17.21",
     "@types/jest": "^30.0.0",

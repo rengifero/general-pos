@@ -111,7 +111,7 @@ const tslib_1 = __webpack_require__(4);
 const common_1 = __webpack_require__(1);
 let AppService = class AppService {
     getData() {
-        return { message: 'Hello mundo cruel API' };
+        return { message: 'Hello mundo CREUEL API' };
     }
 };
 exports.AppService = AppService;
@@ -540,14 +540,28 @@ const core_1 = __webpack_require__(2);
 const app_module_1 = __webpack_require__(3);
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
+    const allowedOrigins = [
+        'http://localhost:4200/products', // Your frontend development URL
+        //'https://www.your-production-domain.com', // Your actual production domain
+        // Add other staging or test domains here
+    ];
+    /*  app.enableCors({
+     origin: allowedOrigins,
+     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+     allowedHeaders: 'Content-Type, Authorization',
+     credentials: true, // Set to true if your app uses cookies or auth headers
+   }); */
     // Configure CORS, specifying allowed headers
-    app.enableCors({
-        origin: 'http://localhost:4200', // Replace with your client's origin (e.g., your frontend URL)
-        methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
-        'Content-Type': 'application/json',
-        allowedHeaders: 'Content-Type, X-Apollo-Operation-Name, Apollo-Require-Preflight', // Include necessary headers
-        credentials: true, // If you need to handle cookies/credentials
-    });
+    /* app.enableCors({
+      origin: allowedOrigins,
+      //origin: 'http://localhost:4200', // Replace with your client's origin (e.g., your frontend URL)
+      methods: 'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS',
+      'Content-Type': 'application/json',
+      allowedHeaders: 'Content-Type, X-Apollo-Operation-Name, Apollo-Require-Preflight', // Include necessary headers
+    credentials: true, // If you need to handle cookies/credentials
+  
+    }); */
+    app.enableCors();
     const globalPrefix = 'api';
     app.setGlobalPrefix(globalPrefix);
     const port = process.env.PORT || 3000;
